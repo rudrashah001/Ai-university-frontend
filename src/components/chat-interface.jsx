@@ -1,5 +1,6 @@
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { useChat } from "@ai-sdk/react";
+import { apiUrl } from "@/lib/api";
 import { DefaultChatTransport } from "ai";
 import { useCallback, useMemo, useRef, useEffect, useState } from "react";
 import { nanoid } from "nanoid";
@@ -48,7 +49,7 @@ function ChatInterface({ chatId: initialChatId, initialMessages = [], onNewChat 
   );
   const transport = useMemo(
     () => new DefaultChatTransport({
-      api: "/api/chat",
+      api: apiUrl("/api/chat"),
       body: { chatId }
     }),
     [chatId]

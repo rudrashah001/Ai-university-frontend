@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL?.replace(/\/$/, '') || ''
+const API_BASE = import.meta.env.VITE_API_URL?.replace(/\/$/, '') || (import.meta.env.PROD ? 'https://ai-university-backend-j7kw.onrender.com' : '')
 
 export function apiUrl(path) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`
